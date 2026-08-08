@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+        <link href="css/Formulario.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <h1><span class="titulo">FORMULARIO</span></h1>
+        <br/>
+
+        <!-- <form method="get" action="mi_servidor" autocomplete="off" id="formulario_output"> POST: privado  GET:publico -->
+            <form id="formulario_output">
+            <fieldset class="formulario">
+                <legend>Log In</legend>
+
+                <!-- La etiqueta for es para que al apretar el texto se seleccione el input -->
+                <p>
+                    <label for="idUsuario">Usuario:</label>
+                    <input type="text" name="uidUsuario"" id="idUsuario" readonly="true" value="ymotomy" disabled="true"/>
+                </p>
+
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required="true" placeholder="Escribe tu Email" value="tomaas.ra@gmail.com"/>
+                </p>
+
+                <p>
+                    <label for="contrasena">Contrasena:</label>
+                    <input type="password" name="contrasena"" id="contrasena" placeholder="Escribe tu contrasena"/>
+                </p>
+        
+                <p>
+                    <label for="num_cel">Numero Celular:</label>
+                    <input type="tel" name="num_cel" id="num_cel" placeholder="Escribe tu numero"/>
+                </p>
+        
+                <p>
+                    <label for="f_nac">Fecha de nacimiento:</label>
+                    <input type="date" name="f_nac" id="f_nac" required="true" value="2003-04-24"/>
+                </p>
+
+                <!-- Botones de radio -->
+                <p>
+                    <label>Genero:</label>
+                    <br/>
+                    <input type="radio" name="genero" id="femenino" value="femenino" />
+                    <label for="femenino">Femenino</label>
+                    <br/>
+                    <input type="radio" name="genero" id="masculino" value="masculino" />
+                    <label for="masculino">Masculino</label>
+                    <br/>
+                    <input type="radio" name="genero" id="otro" value="otro" />
+                    <label for="otro">Otro</label>
+                    <!-- Para que solo se selccione uno, tienen que tener el mismo "name" -->
+                </p>
+
+                
+                <p><!-- Checkbox -->
+                    <label>Generos de Musica Favoritos</label>
+                    <br/>
+                    <input type="checkbox" name="musica" id="clasica" value='clasica'/>
+                    <label for="clasica">Clasica</label>
+                    <br/>
+                    <input type="checkbox" name="musica" id="electronica" value='electronica'/>
+                    <label for="electronica">Electronica</label>
+                    <br/>
+                    <input type="checkbox" name="musica" id="reggaeton" value='reggaeton'/>
+                    <label for="reggaeton">Reggaeton</label>
+                </p>
+
+                <p><!-- Select -->
+                    <label>Marca de Autos Favorita:</label>
+                    <br/>
+                    <select id="auto" name="auto" class="select">
+                        <option class="option" value="volvo">Volvo</option>
+                        <option class="option" value="Chevrolet">Chevrolet</option>
+                        <option class="option" value="Audi" selected="true">Audi</option>
+                        <option class="option" value="Kia">Kia</option>
+                    </select>
+                </p>
+
+                <p><!-- Select -->
+                    <label for="comentario">Comentario:</label>
+                    <br/>
+                    <textarea id="comentario" name="comentario" rows="2" cols="30" class="textarea">
+                    Este es mi comentario                    
+                    </textarea>
+                </p>
+
+                <p>
+                    <input type="submit" name="boton" id="boton" class='boton'/>
+
+                    <input type="reset" value="Restablecer" class="boton"/>
+                </p>
+            </fieldset>
+        </form>
+        <button onclick="mostrarValores()" class="boton">Mostrar</button>
+        <p id="output"></p>
+
+        <script>
+            function mostrarValores(){
+                let formulario = document.forms["formulario_output"];
+                let texto = "";
+                for (let elemento of formulario){
+                    texto += elemento.value + '<br/>';
+                } 
+                console.log(texto);
+                let output = document.getElementById("output")
+                output.innerHTML=texto
+
+            }
+        </script>
+    
+    </body>
+
+</html>
